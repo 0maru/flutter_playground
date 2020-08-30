@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/pages/animation_button.dart';
 
 class IndexPage extends StatelessWidget {
   static const path = '/index';
@@ -6,6 +7,28 @@ class IndexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('index'),
+      ),
+      body: SafeArea(
+        child: ListView(
+          children: [
+            _buildListTile(
+              context,
+              'click to animation image',
+              AnimationButtonPage.path,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildListTile(BuildContext context, String title, String path) {
+    return ListTile(
+      title: Text(title),
+      onTap: () => Navigator.of(context).pushNamed(path),
+    );
   }
 }
