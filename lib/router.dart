@@ -13,14 +13,14 @@ class Router {
           builder: (context) => IndexPage(),
         );
         break;
-      case AnimationButtonPage.page:
+      case AnimationButtonPage.path:
         return CupertinoPageRoute<void>(
           builder: (context) => AnimationButtonPage(),
         );
         break;
       default:
+        assert(false);
+        return null;
     }
-    assert(false);
-    return null;
   }
 }
