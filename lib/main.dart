@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/pages/index.dart';
 import 'package:flutter_playground/router.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Play Ground',
-      initialRoute: Router.initialRoute,
+      initialRoute: IndexPage.path,
       onGenerateRoute: Router().generateRoute,
     );
   }

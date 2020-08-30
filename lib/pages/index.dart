@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/pages/animation_button.dart';
+import 'package:flutter_playground/pages/animation_button/animation_button_page.dart';
 
 class IndexPage extends StatelessWidget {
   static const path = '/index';
