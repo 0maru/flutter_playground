@@ -18,9 +18,9 @@ class _TransformImageState extends State<TransformImage> with SingleTickerProvid
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 540),
       vsync: this,
-    )..repeat();
+    )..forward();
     _animation = StepTween(begin: 0, end: 18).animate(_controller);
   }
 
@@ -32,14 +32,10 @@ class _TransformImageState extends State<TransformImage> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    // return Container(
-    //   height: IMAGE_SIZE,
-    //   width: IMAGE_SIZE,
-    //   child: _buildSpriteImage(context),
-    // );
     return Container(
       width: IMAGE_SIZE,
       height: IMAGE_SIZE,
+      decoration: BoxDecoration(border: Border.all()),
       child: ClipRect(
         clipBehavior: Clip.antiAlias,
         child: OverflowBox(
@@ -50,12 +46,32 @@ class _TransformImageState extends State<TransformImage> with SingleTickerProvid
             animation: _animation,
             child: Image.asset('assets/images/favorite_sprite.png'),
             builder: (BuildContext context, Widget child) {
-              // print(_animation.value);
+              print(_animation.value);
               return Transform.translate(
                 child: child,
-                offset: Offset(IMAGE_SIZE * 12, 0),
+                offset: Offset(-IMAGE_SIZE * _animation.value, 0),
               );
             },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSampleImage(BuildContext context) {
+    return Container(
+      height: IMAGE_SIZE,
+      width: IMAGE_SIZE,
+      decoration: BoxDecoration(border: Border.all()),
+      child: ClipRect(
+        clipBehavior: Clip.antiAlias,
+        child: OverflowBox(
+          alignment: Alignment.topLeft,
+          maxHeight: IMAGE_SIZE,
+          maxWidth: IMAGE_SIZE * (18 + 1),
+          child: Transform.translate(
+            offset: Offset(-600, 0),
+            child: Image.asset('assets/images/favorite_sprite.png'),
           ),
         ),
       ),
