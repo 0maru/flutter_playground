@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widget/transform_image.dart';
+import 'widget/animate_button.dart';
 
 class AnimationButtonPage extends StatelessWidget {
   static const path = '/animation_button_page';
@@ -11,10 +11,7 @@ class AnimationButtonPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: RawMaterialButton(
-            child: TransformImage(),
-            onPressed: () {},
-          ),
+          child: AnimateButton(),
         ),
       ),
     );
